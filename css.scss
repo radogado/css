@@ -1,0 +1,17 @@
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.n-carousel {
+
+	gap: 1rem;
+
+	&.n-carousel--vertical {
+		--max-height: 100dvh;
+	}
+
+	&.n-carousel--tabs > .n-carousel__index > * {
+		padding: 1rem;
+	}
+}
