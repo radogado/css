@@ -1,65 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<title>Modern CSS</title>
-		<meta name="description" content="niui front end library">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
-		<link rel="styleSheet" href="./node_modules/niui-npm/dist/niui.min.css" type="text/css">
-		<link rel="styleSheet" href="css.css" type="text/css">
-		<script src="./node_modules/niui-npm/dist/niui.min.js" type="module" defer> </script>
-		<link href="./node_modules/prismjs/themes/prism.min.css" rel="stylesheet" />
-		<script src="./node_modules/prismjs/prism.js"></script>
-	</head>
+<head>
+	<title>Modern CSS</title>
+	<meta name="description" content="niui front end library">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+	<link rel="styleSheet" href="./node_modules/niui-npm/dist/niui.min.css" type="text/css">
+	<link rel="styleSheet" href="css.css" type="text/css">
+	<script src="./node_modules/niui-npm/dist/niui.min.js" type="module" defer> </script>
+	<link href="./node_modules/prismjs/themes/prism.min.css" rel="stylesheet" />
+	<script src="./node_modules/prismjs/prism.js"></script>
+</head>
 
-	<body>
-		<main>
-			<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--controls-outside n-carousel--index-align-start">
-				<div class="n-carousel__index">
-					<button><span>Home</span></button>
-					<button><span>Masks and colour filtering</span></button>
-				</div>
-				<div class="n-carousel__content">
-					<section id="home">
-						<h1>Modern CSS (2024)</h1>
-					</section>
-					<section id="masks">
-						<div>
+<body>
+	<main>
+		<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--controls-outside n-carousel--index-align-start" data-duration=".25">
+			<div class="n-carousel__index">
+				<button><span>&lt;modern-css&gt;</span></button>
+				<button><span>Masks and colour filtering</span></button>
+				<button><span>Parent selector</span></button>
+				<button><span>:is(), :where()</span></button>
+				<button><span>CSS Grid</span></button>
+				<button><span>Scroll snapping</span></button>
+				<button><span>Container queries</span></button>
+				<button><span>inert</span></button>
+				<button><span>Logical properties</span></button>
+				<button><span>min, max et al</span></button>
+
+				<button><span>&lt;/modern-css&gt;</span></button>
+			</div>
+			<div class="n-carousel__content">
+				<section id="home">
+					<h1>Modern CSS for 2024</h1>
+				</section>
+				<section id="masks">
+					<div>
 						<h2>Custom colour</h2>
-						<input type="color" value="#802f9d">
-						
-						
-						</div>
-						<div>
+						<input type="color" value="#802f9d" aria-label="Select custom colour">
+					</div>
+					<div>
 						<h2>Original image</h2>
 						<span class="square" style="background-image: var(--logo);">
-							
+
 						</span>
-						</div>
-						<div>
-							
+					</div>
+					<div>
+
 						<h2>Element masked by custom colour and image</h2>
 						<span class="square" style="-webkit-mask-image: var(--logo); background: var(--mask-color);">
-							
+
 						</span>
+					</div>
+
+					<div>
+						<a href="https://angel-rs.github.io/css-color-filter-generator/">css-color-filter-generator</a>
+					</div>
+
+				</section>
+				<section id="parent-selector">
+					<form>
+						<h2>Please check below to proceed</h2>
+						<label>Required checkbox<input type="checkbox" required></label>
+					</form>
+				</section>
+				<section id="is">
+					<h2>:is(), :where() selectors</h2>
+					<pre><code class="language-css">article p, section p, aside p {
+	color: #444;
+}</code></pre>
+					<br><br>
+					<pre><code class="language-css">:is(article, section, aside) p {
+	color: #444;
+}</code></pre>
+					<p>:where() is the same with specificity 0</p>
+
+					<p>⚠️ Firefox doesn't support it yet.</p>
+				</section>
+				<section id="grid">
+					<h2>CSS grid, subgrid and animate to auto dimensions</h2>
+					<label for="toggle">Check this to animate to auto height</label>
+					<input type="checkbox" id="toggle" value="Toggle" aria-label="Toggle auto height">
+
+					<div>Something before 🙃</div>
+
+					<div class="expander" id="expander">
+						<div class="expander-content">
+							This content should…<br />
+							toggle! 👻
+						</div>
+					</div>
+
+					<div>Something after 🙂</div>
+
+					<h2>Subgrid</h2>
+					<div class="cards-container">
+
+						<!-- FIRST CARD -->
+						<div class="card card-first">
+							<div class="card-header-wrapper">
+								<h2 class="card-title">The cosmos awaits</h2>
+								<h4 class="card-subtitle">Great turbulent clouds</h4>
+								<div class="card-avatar-wrapper">
+									<img class="card-avatar" src="https://images.unsplash.com/photo-1476814607969-0dfe98b9be5c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+								</div>
+							</div>
+							<div class="card-photo-wrapper">
+								<img class="card-photo" src="https://images.unsplash.com/photo-1512547770769-0eb554dbaa73?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+							</div>
+							<p class="card-text">With pretty stories for which there's little good evidence star stuff harvesting star light circumnavigated invent the universe billions upon billions of brilliant syntheses.</p>
+							<svg class="card-like" height="32" width="32" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="M340.8 98.4c50.7 0 91.9 41.3 91.9 92.3 0 26.2-10.9 49.8-28.3 66.6L256 407.1 105 254.6c-15.8-16.6-25.6-39.1-25.6-63.9 0-51 41.1-92.3 91.9-92.3 38.2 0 70.9 23.4 84.8 56.8 13.7-33.3 46.5-56.8 84.7-56.8m0-15.4C307 83 276 98.8 256 124.8c-20-26-51-41.8-84.8-41.8C112.1 83 64 131.3 64 190.7c0 27.9 10.6 54.4 29.9 74.6L245.1 418l10.9 11 10.9-11 148.3-149.8c21-20.3 32.8-47.9 32.8-77.5C448 131.3 399.9 83 340.8 83z" />
+							</svg>
+							<button class="card-button">More</button>
 						</div>
 
-					</section>
-				</div>	
+						<!-- SECOND CARD -->
+						<div class="card card-second">
+							<div class="card-header-wrapper">
+								<h2 class="card-title">Harvesting star light</h2>
+								<h4 class="card-subtitle">Realm of the galaxies</h4>
+								<div class="card-avatar-wrapper">
+									<img class="card-avatar" src="https://images.unsplash.com/photo-1583994009906-c00c0bd8acb2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+								</div>
+							</div>
+							<div class="card-photo-wrapper">
+								<img class="card-photo" src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+							</div>
+							<p class="card-text">Descended from astronomers encyclopaedia galactica Sea of Tranquility encyclopaedia galactica vanquish the impossible courage of our questions. Great turbulent clouds emerged into consciousness inconspicuous motes of rock and gas gathered by gravity.</p>
+							<svg class="card-like" height="32" width="32" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="M340.8 98.4c50.7 0 91.9 41.3 91.9 92.3 0 26.2-10.9 49.8-28.3 66.6L256 407.1 105 254.6c-15.8-16.6-25.6-39.1-25.6-63.9 0-51 41.1-92.3 91.9-92.3 38.2 0 70.9 23.4 84.8 56.8 13.7-33.3 46.5-56.8 84.7-56.8m0-15.4C307 83 276 98.8 256 124.8c-20-26-51-41.8-84.8-41.8C112.1 83 64 131.3 64 190.7c0 27.9 10.6 54.4 29.9 74.6L245.1 418l10.9 11 10.9-11 148.3-149.8c21-20.3 32.8-47.9 32.8-77.5C448 131.3 399.9 83 340.8 83z" />
+							</svg>
+							<button class="card-button">More</button>
+						</div>
+
+						<!-- THIRD CARD -->
+						<div class="card card-third">
+							<div class="card-header-wrapper">
+								<h2 class="card-title">Impossible courage of our questions</h2>
+								<h4 class="card-subtitle">The ash of stellar alchemy</h4>
+								<div class="card-avatar-wrapper">
+									<img class="card-avatar" src="https://images.unsplash.com/photo-1511546395756-590dffdcdbd1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+								</div>
+							</div>
+							<div class="card-photo-wrapper"><img class="card-photo" src="https://images.unsplash.com/photo-1485846753954-dff2171ddb2b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt=""></div>
+							<p class="card-text">Brain is the seed of intelligence from which we spring not a sunrise but a galaxyrise consciousness take root and flourish Cambrian explosion. Stirred by starlight billions upon billions vanquish the impossible the sky calls to us with pretty stories?</p>
+							<svg class="card-like" height="32" width="32" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="M340.8 98.4c50.7 0 91.9 41.3 91.9 92.3 0 26.2-10.9 49.8-28.3 66.6L256 407.1 105 254.6c-15.8-16.6-25.6-39.1-25.6-63.9 0-51 41.1-92.3 91.9-92.3 38.2 0 70.9 23.4 84.8 56.8 13.7-33.3 46.5-56.8 84.7-56.8m0-15.4C307 83 276 98.8 256 124.8c-20-26-51-41.8-84.8-41.8C112.1 83 64 131.3 64 190.7c0 27.9 10.6 54.4 29.9 74.6L245.1 418l10.9 11 10.9-11 148.3-149.8c21-20.3 32.8-47.9 32.8-77.5C448 131.3 399.9 83 340.8 83z" />
+							</svg>
+							<button class="card-button">More</button>
+						</div>
+
+						<!-- FOURTH CARD -->
+						<div class="card card-fourth">
+							<div class="card-header-wrapper">
+								<h2 class="card-title">A mote of dust suspended in a sunbeam</h2>
+								<h4 class="card-subtitle">Interiors of collapsing stars</h4>
+								<div class="card-avatar-wrapper">
+									<img class="card-avatar" src="https://images.unsplash.com/photo-1553669006-0b3882afea8d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+								</div>
+							</div>
+							<div class="card-photo-wrapper">
+								<img class="card-photo" src="https://images.unsplash.com/photo-1498452572341-c087c3ee25fc?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+							</div>
+							<p class="card-text">Orion's sword venture take root and flourish inconspicuous motes of rock and gas vanquish the impossible muse about. A very small stage in a vast cosmic arena two ghostly white figures in coveralls and helmets.</p>
+							<svg class="card-like" height="32" width="32" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="M340.8 98.4c50.7 0 91.9 41.3 91.9 92.3 0 26.2-10.9 49.8-28.3 66.6L256 407.1 105 254.6c-15.8-16.6-25.6-39.1-25.6-63.9 0-51 41.1-92.3 91.9-92.3 38.2 0 70.9 23.4 84.8 56.8 13.7-33.3 46.5-56.8 84.7-56.8m0-15.4C307 83 276 98.8 256 124.8c-20-26-51-41.8-84.8-41.8C112.1 83 64 131.3 64 190.7c0 27.9 10.6 54.4 29.9 74.6L245.1 418l10.9 11 10.9-11 148.3-149.8c21-20.3 32.8-47.9 32.8-77.5C448 131.3 399.9 83 340.8 83z" />
+							</svg>
+							<button class="card-button">More</button>
+						</div>
+					</div>
+					<div>
+
+						<p class="caption">
+							<a href="https://www.ditdot.hr/en/css-subgrid-how-to-build-complex-layouts-in-a-simple-way" title="ditdot.hr" target="_blank">Visit how-to article on our blog</a>
+						</p>
+					</div>
+				</section>
+
+				<section id="scroll-snap">
+					<h2>Scroll snapping</h2>
+
+					<div class="scroll-container">
+						<div class="scroll-area">1</div>
+						<div class="scroll-area">2</div>
+						<div class="scroll-area">3</div>
+						<div class="scroll-area">4</div>
+					</div>
+				</section>
+				<section id="container-queries">
+					<h2>Container queries</h2>
+				</section>
+				<section id="inert">
+					<h2>The <pre>inert</pre> attribute</h2>
+					<p>It makes the element non-interactive, disabling tabbing into temporarily hidden or inactive sections.</p>
+				</section>
+				<section id="logical">
+					<h2>Logical properties</h2>
+				</section>
+				<section id="min-max">
+					<h2>min(), max(), minmax(), clamp()</h2>
+				</section>
+
+
+
+				<section id="end">
+					<h2>End</h2>
+				</section>
 			</div>
-		</main>
-		
-		
-		<script>
-			document.querySelectorAll('input[type="color"]').forEach(el => {
-				document.body.style.setProperty('--mask-color', el.value);
-				el.oninput = e => {
-					document.body.style.setProperty('--mask-color', e.target.value);
-				};
-			});
-		</script>
-		
-	</body>
+		</div>
+	</main>
+
+
+	<script>
+		document.querySelectorAll('input[type="color"]').forEach(el => {
+			document.body.style.setProperty('--mask-color', el.value);
+			el.oninput = e => {
+				document.body.style.setProperty('--mask-color', e.target.value);
+			};
+		});
+	</script>
+
+</body>
 
 </html>
