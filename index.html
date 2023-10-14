@@ -2,7 +2,7 @@
 <html lang="en">
 
 	<head>
-		<title>niui</title>
+		<title>Modern CSS</title>
 		<meta name="description" content="niui front end library">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
@@ -17,15 +17,49 @@
 		<main>
 			<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--controls-outside n-carousel--index-align-start">
 				<div class="n-carousel__index">
-					<button><span>One</span></button>
-					<button><span>Two</span></button>
+					<button><span>Home</span></button>
+					<button><span>Masks and colour filtering</span></button>
 				</div>
 				<div class="n-carousel__content">
-					<section>One</section>
-					<section>Two</section>
+					<section id="home">
+						<h1>Modern CSS (2024)</h1>
+					</section>
+					<section id="masks">
+						<div>
+						<h2>Custom colour</h2>
+						<input type="color" value="#802f9d">
+						
+						
+						</div>
+						<div>
+						<h2>Original image</h2>
+						<span class="square" style="background-image: var(--logo);">
+							
+						</span>
+						</div>
+						<div>
+							
+						<h2>Element masked by custom colour and image</h2>
+						<span class="square" style="-webkit-mask-image: var(--logo); background: var(--mask-color);">
+							
+						</span>
+						</div>
+
+					</section>
 				</div>	
 			</div>
 		</main>
+		
+		
+		<script>
+			document.querySelectorAll('input[type="color"]').forEach(el => {
+				document.body.style.setProperty('--mask-color', el.value);
+				el.oninput = e => {
+					document.body.style.setProperty('--mask-color', e.target.value);
+				};
+			});
+		</script>
+		
 	</body>
 
 </html>
