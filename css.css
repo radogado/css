@@ -236,11 +236,6 @@ p.caption a {
   scroll-snap-align: center;
 }
 
-.scroll-container,
-.scroll-area {
-  margin: 0 auto;
-}
-
 .scroll-area {
   align-items: center;
   justify-content: center;

@@ -21,11 +21,11 @@
 				<button><span>Masks and colour filtering</span></button>
 				<button><span>Parent selector</span></button>
 				<button><span>:is(), :where()</span></button>
-				<button><span>CSS Grid</span></button>
+				<button><span>CSS Grid update</span></button>
 				<button><span>Scroll snapping</span></button>
 				<button><span>Container queries</span></button>
 				<button><span>Logical properties</span></button>
-				<button><span>min, max et al</span></button>
+				<button><span>min(), max()</span></button>
 				<button><span>Details</span></button>
 				<button><span>Dialog</span></button>
 
@@ -233,10 +233,44 @@ brightness(99%) contrast(89%);</code></pre>
 					<p><b>:dir(rtl)</b> pseudo selector detects RTL writing direction in the current element. Supported by Firefox and Safari, coming soon to Chrome.</p>
 				</section>
 				<section id="min-max">
-					<h2>min(), max(), minmax(), clamp()</h2>
+					<h2>Logical functions: min(), max(), minmax(), clamp()</h2>
+					<h3>Browser uses the smallest/largest of the listed values</h3>
+					<pre><code class="language-css">section {
+	width: min(100vw, 1280px);
+}</code></pre>
+					<h3>clamp() uses a minimum value, ideal value (from which to calculate), and maximum value</h3>
+					
+					<pre><code class="language-css">p {
+  width: clamp(45ch, 50%, 75ch);
+}</code></pre>
+					
+					<p>No need for <b>calc()</b> inside the above functions.</p>
+					
+					<h3>minmax() for CSS Grid</h3>
+					
+					<pre><code class="language-css">p {
+  grid-template-columns: minmax(20px, auto) 1fr 1fr;
+}</code></pre>
+
 				</section>
 				<section id="details">
 					<h2>Details/summary</h2>
+					<h3>Expandable content with CSS only</h3>
+					<br>
+					<details>
+						<summary>Title</summary>
+						One<br>
+						Two<br>
+						Three<br>
+					</details>
+<br>
+					<pre><code class="language-html">&lt;details&gt;
+	&lt;summary&gt;Title&lt;/summary&gt;
+	Content
+&lt;/details&gt;</code></pre>					
+					<p>Uses the <b>open</b> attribute.</p>
+					<p>The summary can be styled without the chevron.</p>
+					<p>⚠️ Can't be forced by CSS to always be open on Desktop.</p>
 				</section>
 				<section id="dialog">
 					<h2>Dialog</h2>
