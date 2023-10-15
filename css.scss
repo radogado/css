@@ -298,3 +298,10 @@ pre {
 	box-sizing: border-box;
 	vertical-align: top;
 }
+
+dialog {
+	position: fixed;
+	inset: 0;
+	box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+	z-index: 1;
+}
