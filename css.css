@@ -270,9 +270,29 @@ pre {
 dialog {
   position: fixed;
   inset: 0;
-  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
   z-index: 1;
   border-radius: 0.5rem;
+}
+
+details[open] summary {
+  background-image: var(--chevron-up);
+}
+
+.styled-summary summary {
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M4.53 7.713a.625.625 0 0 1 .882-.058l4.176 3.654a.625.625 0 0 0 .824 0l4.176-3.654a.625.625 0 0 1 .824.94l-4.177 3.655a1.875 1.875 0 0 1-2.47 0L4.588 8.595a.625.625 0 0 1-.058-.882Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  --chevron-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M8.765 7.964a1.875 1.875 0 0 1 2.47 0l4.177 3.655a.625.625 0 0 1-.824.94l-4.176-3.654a.625.625 0 0 0-.824 0l-4.176 3.654a.625.625 0 1 1-.824-.94l4.177-3.655Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-mode-tints-shades-primary-200, #B0A5C4);
+  padding: 0.625rem;
+  background: var(--chevron) no-repeat calc(100% - 0.5rem) center;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+.styled-summary summary::-webkit-details-marker, .styled-summary summary::marker {
+  display: none;
+  content: "";
 }
 
 /*# sourceMappingURL=css.css.map */
