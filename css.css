@@ -272,6 +272,7 @@ dialog {
   inset: 0;
   box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
   z-index: 1;
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=css.css.map */
