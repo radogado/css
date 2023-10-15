@@ -3,8 +3,9 @@
 }
 
 body {
-	margin: 0;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	max-width: 1440px;
+	margin: 0 auto;
 }
 
 .n-carousel {
@@ -40,16 +41,20 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 
+	-webkit-mask: center no-repeat;
 	-webkit-mask-size: contain;
-	-webkit-mask-position: center;
-	-webkit-mask-repeat: no-repeat;
+	mask: center no-repeat;
+	mask-size: contain;
 }
 
-section#masks {
+section#masks .grid {
 	display: flex;
+	gap: 1rem;
 
 	> * {
-		flex: 1 1 auto;
+		flex: 1;
+		min-width: 0;
+
 	}
 }
 
@@ -69,22 +74,15 @@ form:has([required]:valid) {
 .expander {
 	display: grid;
 	grid-template-rows: 0fr;
-	overflow: hidden;
 	transition: grid-template-rows .25s;
 }
 
-.expander-content {
+.expander > div {
 	min-height: 0;
-	transition: visibility .25s;
-	visibility: hidden;
 }
 
 :checked ~ .expander {
 	grid-template-rows: 1fr;
-}
-
-:checked ~ .expander .expander-content {
-	visibility: visible;
 }
 
 /* MAIN GRID */
@@ -92,37 +90,39 @@ form:has([required]:valid) {
 .cards-container {
 	max-width: 1400px;
 	margin: 2rem auto;
-	width: 95%;
+	// width: 95%;
 	display: grid;
 	/* set display to grid to create the outer grid */
-	grid-template-columns: repeat(3, [col-start] fit-content(9rem));
+	// grid-template-columns: repeat(3, auto);
 	/* create 4 explicit column tracks */
-	grid-auto-rows: fit-content(12rem) minmax(10rem, 14rem) auto auto;
+	// grid-auto-rows: fit-content(12rem) minmax(10rem, 14rem) auto auto;
 	/* create 4 implicit row tracks */
 	gap: 0.5rem;
 	/* create the gap between grid columns and rows */
-	justify-content: center;
+	// justify-content: center;
 }
 
 /* SUBGRID */
 
 .card {
-	grid-column: span 3;
+	// grid-column: span 3;
 	/* every card spans across 3 columns of the main grid */
 	grid-row: span 4;
 	/* every card spans across 4 rows of the main grid */
 	display: grid;
 	/* set display to grid in order to create a subgrid */
-	grid-template-columns: subgrid [card-start][button-start][col][card-end button-end];
+	// grid-template-columns: subgrid;
 	/* create subgrid for columns to use grid column tracks of the parent and name the column lines*/
-	grid-template-rows: subgrid [title-start][title-end photo-start] [photo-end text-start] [text-end button-start] [button-end];
+	grid-template-rows: subgrid [title-start][title-end photo-start];
+
 	/* create subgrid for rows to use row column tracks of the parent and name the row lines*/
-	row-gap: 0;
+	// row-gap: 0;
 	/* override the inherited row gap */
 	background-color: #fff;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	margin: 0 0.5rem 1rem 0.5rem;
-	padding: 1rem;
+	// box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	// margin: 0 0.5rem 1rem 0.5rem;
+	padding: .5rem;
+	border: 1px solid lightblue;
 	/*padding influences the sizing of rows and columns*/
 }
 
@@ -248,6 +248,7 @@ p.caption a {
 
 .scroll-container,
 .scroll-area {
+  display: flex;
   max-width: 850px;
   height: 600px;
   font-size: 60px;
@@ -255,11 +256,11 @@ p.caption a {
 
 .scroll-container {
   overflow: auto;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: both mandatory;
 }
 
 .scroll-area {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .scroll-container,
@@ -268,10 +269,11 @@ p.caption a {
 }
 
 .scroll-area {
-  display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .scroll-area:nth-of-type(1) {
@@ -292,4 +294,7 @@ p.caption a {
 
 pre {
 	display: inline-block;
+	max-width: 100%;
+	box-sizing: border-box;
+	vertical-align: top;
 }
