@@ -18,7 +18,7 @@
 		<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--controls-outside n-carousel--index-align-start" data-duration=".25">
 			<div class="n-carousel__index">
 				<button><span>&lt;modern-css&gt;</span></button>
-				<button><span>Masks and colour filtering</span></button>
+				<button><span>Masks and filters</span></button>
 				<button><span>Parent selector</span></button>
 				<button><span>:is(), :where()</span></button>
 				<button><span>CSS Grid update</span></button>
@@ -37,7 +37,8 @@
 					<h2>CSS today has amazing features that make browsers very powerful, our work easier and reduce dependence of complex JavaScript solutions.</h2>
 				</section>
 				<section id="masks">
-					<h2>Masks and colour filtering</h2>
+					<h2>Masks and filters
+					</h2>
 					<div class="grid">
 						<div>
 							<h3>Original image</h3>
@@ -275,6 +276,13 @@ brightness(99%) contrast(89%);</code></pre>
 	Two<br>
 	Three<br>
 </details>
+					<pre><code class="language-css">summary {
+	&::-webkit-details-marker,
+	&::marker {
+		display: none;
+		content: "";
+	}
+}</code></pre>
 					<p>Uses the <b>open</b> attribute.</p>
 					<p>Can be animated with JS or CSS Grid transition.</p>
 					<p>The summary can be styled without the chevron.</p>
@@ -307,14 +315,12 @@ dialog.close();</code></pre>
 
 				<section id="end">
 					<h3>But wait, there is more</h3>
-					<ul>
+					<ul class="n-list">
 						<li>Declarative Shadow DOM</li>
 
-						<li><b>&lt;dl&gt; &lt;dt&gt; &lt;dd&gt;</b></li>
-						<li><b>&lt;progress&gt;</b></li>
-
+						<li>Definition lists: <b>&lt;dl&gt; &lt;dt&gt; &lt;dd&gt;</b></li>
+						<li><b>&lt;progress&gt;</b> bar</li>
 						<li>Scroll timeline</li>
-
 						<li>Layers</li>
 						<li>The <b>inert</b> attribute</li>
 					</ul>
