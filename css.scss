@@ -348,3 +348,15 @@ details[open] {
 	}
 	margin-bottom: 1rem;
 }
+
+.code {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+	vertical-align: top;
+	button {
+		position: absolute;
+		inset-block-end: 0;
+		inset-inline-end: 0;
+	}
+}

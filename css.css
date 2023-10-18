@@ -308,4 +308,16 @@ details[open] summary {
   content: "";
 }
 
+.code {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  vertical-align: top;
+}
+.code button {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+}
+
 /*# sourceMappingURL=css.css.map */
