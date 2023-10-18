@@ -34,7 +34,7 @@
 			<div class="n-carousel__content">
 				<section id="home">
 					<h1>Modern CSS for 2024</h1>
-					<h2>CSS today has amazing features that make browsers very powerful, our work easier and reduce its dependence on complex JavaScript solutions.</h2>
+					<h2>CSS today has advanced features that make browsers very powerful, our work easier and reduce dependence on complex JavaScript solutions.</h2>
 				</section>
 				<section id="masks">
 					<h2>Masks and filters
@@ -231,8 +231,14 @@ brightness(99%) contrast(89%);</code></pre>
 					<p>To follow writing direction (Arabic etc), instead of screen direction, use logical properties:</p>
 					<p>Border, margin, padding + <b>top, bottom, left, right</b> → <b>block-start, block-end, inline-start, inline-end</b>.</p>
 					<p>Absolute-positioning with <b>top, right, bottom, left</b> → <b>inset-block-start, inset-inline-end, inset-block-end, inset-inline-start</b>.</p>
-					<p><b>:dir(rtl)</b> pseudo selector detects RTL writing direction in the current element. Supported by Firefox and Safari, coming soon to Chrome.</p>
+					<p><span class="square" style="background-image: var(--logo); margin-right: 1rem; vertical-align: middle;">
+						
+						</span>An image with text after it and <b>margin-right</b></p>
+					<p><span class="square" style="background-image: var(--logo); margin-inline-end: 1rem;vertical-align: middle;">
+						
+						</span>An image with text after it and <b>margin-inline-end</b></p>
 					<button class="n-btn" aria-label="Switch direction" onclick="document.dir = (document.dir === 'rtl') ? '' : 'rtl';">Switch writing direction</button>
+					<p><b>:dir(rtl)</b> pseudo selector detects RTL writing direction in the current element. Supported by Firefox and Safari, coming soon to Chrome.</p>
 				</section>
 				<section id="min-max">
 					<h2>Logical functions: min(), max(), minmax(), clamp()</h2>
