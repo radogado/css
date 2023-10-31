@@ -30,7 +30,7 @@
 				<button><span>&lt;modern-css&gt;</span></button>
 				<button><span>Masks and filters</span></button>
 				<button><span>Parent selector</span></button>
-				<button><span>:is(), :where()</span></button>
+				<button><span>:is()</span></button>
 				<button><span>CSS Grid update</span></button>
 				<button><span>Scroll snapping</span></button>
 				<button><span>Container queries</span></button>
@@ -138,7 +138,9 @@ brightness(99%) contrast(89%);</code></pre>
 				</section>
 				<section id="grid">
 					<h2>CSS Grid update</h2>
+					<p>Grid revolutionised the way we lay content on the web and just keeps improving. Some of its important new features are layout transitions and subgrid.</p>
 					<h3>Animate to auto dimensions</h3>
+					<p>This long standing CSS-only problem is now solved thanks to a grid transitioning row/column size from <b>0</b> to <b>1fr</b>.</p>
 					<label for="toggle">Check this to animate to auto height</label>
 					<input type="checkbox" id="toggle" value="Toggle" aria-label="Toggle auto height">
 
@@ -173,8 +175,10 @@ brightness(99%) contrast(89%);</code></pre>
 	grid-template-rows: 1fr;
 }</code></pre>
 					</div>
-
+					<p><a href="https://css-tricks.com/animating-css-grid-how-to-examples/">More examples</a>.</p>
 					<h3>Subgrid</h3>
+					<p>A grid child of a grid parent can now become subgrid. When setting the value <b>subgrid</b> on the child's <b>grid-template-columns</b>, <b>grid-template-rows</b> or both, instead of creating a new track listing, the nested grid uses its parent's tracks.</p>
+					<p>In this example, the images are lined up regardless of the headline size, because they are always positioned on the parent's second row.</p>
 					<div class="cards-container">
 
 						<!-- FIRST CARD -->
@@ -225,11 +229,13 @@ brightness(99%) contrast(89%);</code></pre>
 	grid-template-rows: subgrid [title-start][title-end photo-start];
 }</code></pre>
 					</div>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid">More info at MDN</a>.</p>
+
 				</section>
 
 				<section id="scroll-snap">
 					<h2>Scroll snapping</h2>
-
+					<p>CSS scroll snapping is a way to content to its parent after a user has finished scrolling. It’s like a magnet that pulls the the content to the middle/start/end of its container. You can do this by setting the scroll-snap-type property on a container element and the scroll-snap-align property on elements inside it.</p>
 					<div class="scroll-container">
 						<div class="scroll-area">1</div>
 						<div class="scroll-area">2</div>
