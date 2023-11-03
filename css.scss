@@ -266,7 +266,7 @@ p.caption a {
 }
 
 .scroll-container {
-	overflow: auto;
+	// overflow: auto;
 	scroll-snap-type: both mandatory;
 	border-radius: var(--nui-border-radius);
 }

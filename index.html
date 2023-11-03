@@ -235,18 +235,17 @@ brightness(99%) contrast(89%);</code></pre>
 
 				<section id="scroll-snap">
 					<h2>Scroll snapping</h2>
-					<p>CSS scroll snapping is a way to content to its parent after a user has finished scrolling. It’s like a magnet that pulls the the content to the middle/start/end of its container. You can do this by setting the scroll-snap-type property on a container element and the scroll-snap-align property on elements inside it.</p>
+					<p>CSS scroll snapping is a way to snap content to its parent after a user has finished scrolling. It’s like a magnet that pulls the content to the middle/start/end of its container.</p>
 					<div class="scroll-container">
-						<div class="scroll-area">1</div>
-						<div class="scroll-area">2</div>
-						<div class="scroll-area">3</div>
-						<div class="scroll-area">4</div>
+						<div class="scroll-area">1→</div>
+						<div class="scroll-area">←2→</div>
+						<div class="scroll-area">←3→</div>
+						<div class="scroll-area">←4</div>
 					</div>
 
 					<div class="code">
 						<pre><code class="language-css">.scroll-container {
   display: flex;
-  overflow: auto;
   scroll-snap-type: both mandatory;	
 }
 .scroll-area {
@@ -257,9 +256,13 @@ brightness(99%) contrast(89%);</code></pre>
 					</div>
 					<p>Supports multiple visible items.</p>
 					<p><a href="https://nativecarousel.com/#lightbox">More demos</a>.</p>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">More info at MDN</a>.</p>
+
 				</section>
 				<section id="container-queries">
 					<h2>Container queries</h2>
+					<p>Container queries help apply styles to an element based on the size of its container. They are a new alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries">media queries</a>, which apply styles to elements based on viewport size or other device characteristics.</p>
+					<p>The following demo stacks a row of cards when their container (not the browser window) is less than 500px wide.</p>
 					<div class="code">
 						<pre><code class="language-html">&lt;div class=&quot;card-container&quot;&gt;
 	&lt;div class=&quot;card&quot;&gt;
@@ -272,17 +275,18 @@ brightness(99%) contrast(89%);</code></pre>
 	container-type: inline-size;
 }
 						
-@container (max-width: 500px) {
+@container (width < 500px) {
   .card {
 	flex-direction: column;
   }
 }</code></pre>
 					</div>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">More info at MDN</a>.</p>
 				</section>
 				<section id="logical">
 					<h2>Logical properties</h2>
-					<p>To follow writing direction (Arabic etc), instead of screen direction, use logical properties:</p>
-					<p>Border, margin, padding + <b>top, bottom, left, right</b> → <b>block-start, block-end, inline-start, inline-end</b>.</p>
+					<p>To follow writing direction (Arabic being right-to-left), instead of screen direction, use logical properties:</p>
+					<p>Border/margin/padding + <b>top, bottom, left, right</b> → <b>block-start, block-end, inline-start, inline-end</b>.</p>
 					<p>Absolute-positioning with <b>top, right, bottom, left</b> → <b>inset-block-start, inset-inline-end, inset-block-end, inset-inline-start</b>.</p>
 					<p><span class="square" style="background-image: var(--logo); margin-right: 1rem; vertical-align: middle;">
 
@@ -292,6 +296,7 @@ brightness(99%) contrast(89%);</code></pre>
 						</span>An image with text after it and <b>margin-inline-end</b></p>
 					<button class="n-btn" aria-label="Switch direction" onclick="document.dir = (document.dir === 'rtl') ? '' : 'rtl';">Switch writing direction</button>
 					<p><b>:dir(rtl)</b> pseudo selector detects RTL writing direction in the current element. Supported by Firefox and Safari, coming soon to Chrome.</p>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">More info at MDN</a>.</p>
 				</section>
 				<section id="min-max">
 					<h2>Logical functions: min(), max(), minmax(), clamp()</h2>

@@ -237,7 +237,6 @@ p.caption a {
 }
 
 .scroll-container {
-  overflow: auto;
   scroll-snap-type: both mandatory;
   border-radius: var(--nui-border-radius);
 }
@@ -300,7 +299,7 @@ details[open] summary {
   border-radius: 0.5rem;
   border: 1px solid var(--light-mode-tints-shades-primary-200, #B0A5C4);
   padding: 0.625rem;
-  background: var(--chevron) no-repeat calc(100% - .5rem) center;
+  background: var(--chevron) no-repeat calc(100% - 0.5rem) center;
   cursor: pointer;
   user-select: none;
   margin-bottom: 1rem;
