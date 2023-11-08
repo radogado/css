@@ -301,13 +301,16 @@ brightness(99%) contrast(89%);</code></pre>
 				</section>
 				<section id="min-max">
 					<h2>Logical functions: min(), max(), minmax(), clamp()</h2>
-					<h3>Browser uses the smallest/largest of the listed values</h3>
+					<p>The browser uses the smallest (or largest with max()) of the listed values.</p>
 					<div class="code">
 						<pre><code class="language-css">section {
 	width: min(100vw, 1280px);
 }</code></pre>
 					</div>
-					<h3>clamp() uses a minimum value, ideal value (from which to calculate), and maximum value</h3>
+
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min">More info at MDN</a>.</p>
+
+					<p><b>clamp()</b> takes minimum value, ideal value (used when it's between min and max), and maximum value.</p>
 
 					<div class="code">
 						<pre><code class="language-css">p {
@@ -315,21 +318,26 @@ brightness(99%) contrast(89%);</code></pre>
 }</code></pre>
 					</div>
 
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp">More info at MDN</a>.</p>
+
 					<p>No need for <b>calc()</b> inside the above functions.</p>
 
 					<h3>minmax() for CSS Grid</h3>
+
+					<p>minmax() defines a size range greater than or equal to min and less than or equal to max.</p>
 
 					<div class="code">
 						<pre><code class="language-css">p {
   grid-template-columns: minmax(20px, auto) 1fr 1fr;
 }</code></pre>
 					</div>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/minmax">More info at MDN</a>.</p>
 
 				</section>
 				<section id="details">
 					<h2>Details/summary</h2>
 					<h3>Expandable content with CSS only</h3>
-					<br>
+
 					<details>
 						<summary>Title</summary>
 						One<br>
@@ -343,7 +351,7 @@ brightness(99%) contrast(89%);</code></pre>
 	Content
 &lt;/details&gt;</code></pre>
 					</div>
-
+					<br><br>
 					<details class="styled-summary">
 						<summary>Title</summary>
 						One<br>
@@ -359,10 +367,14 @@ brightness(99%) contrast(89%);</code></pre>
 	}
 }</code></pre>
 					</div>
-					<p>Uses the <b>open</b> attribute.</p>
-					<p>Can be animated with JS or CSS Grid transition.</p>
-					<p>The summary can be styled without the chevron.</p>
-					<p>⚠️ Can't be forced by CSS to always be open on Desktop.</p>
+					<ul>
+						<li>Uses the <b>open</b> attribute.</li>
+						<li>Can be animated with JS or CSS Grid transition.</li>
+						<li>The summary can be styled without chevron.</li>
+						<li>⚠️ Can't be forced by CSS to always be open in another context, e.g. Desktop.</li>
+					</ul>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">More info at MDN</a>.</p>
+					
 				</section>
 				<section id="dialog">
 					<h2>Dialog</h2>
@@ -390,6 +402,7 @@ dialog.close();</code></pre>
 
 					<p>Newer element <b>Popover</b> is like <b>Dialog</b>, but attached to an element.</p>
 					<p><a href="https://radogado.github.io/n-modal/">More demos</a>.</p>
+					<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">More info at MDN</a>.</p>
 
 				</section>
 
