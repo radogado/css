@@ -1,7 +1,7 @@
 :root {
 	--logo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='157' height='141'%3E%3Cpath fill='%239D9D9D' fill-rule='nonzero' d='m13.362 9.53 49.396 13.746s-17.942 18.174 3.96 34.251c.581-.157 6.138-11.719-2.899-12.389l-.289-1.566 17.4-8.414s12.116 6.292 6.059 19.106c0 0 21.365-12.58-4.139-29.359L133.857.072s74.164 100.003-47.316 140.609c0 0 21.861-55.283-3.308-54.946 0 0-21.525-2.104.959 39.845 0 0-89.936 6.376-83.56-76.177 0 0 3.02-24.498 10.739-36.579l1.847-2.958.144-.336Z'/%3E%3C/svg%3E");
-	
-	--nui-color: #41034d;	
+
+	--nui-color: #41034d;
 	--nui-control-bg: #4F46E5;
 	--nui-control-color: white;
 	background: lightcyan;
@@ -19,6 +19,7 @@ body {
 #home {
 	display: flex;
 	flex-direction: column;
+
 	h2 {
 		flex-grow: 1;
 	}
@@ -32,7 +33,7 @@ body {
 		--max-height: 100dvh;
 	}
 
-	&.n-carousel--tabs>.n-carousel__index>* {
+	&.n-carousel--tabs > .n-carousel__index > * {
 		padding: 1rem;
 	}
 
@@ -48,7 +49,7 @@ body {
 		margin: 0;
 		cursor: pointer;
 	}
-	
+
 	&__index {
 		margin: .5rem;
 	}
@@ -72,7 +73,7 @@ section#masks .grid {
 	display: flex;
 	gap: 1rem;
 
-	>* {
+	> * {
 		flex: 1;
 		min-width: 0;
 
@@ -98,167 +99,36 @@ form:has([required]:valid) {
 	transition: grid-template-rows .25s;
 }
 
-.expander>div {
+.expander > div {
 	min-height: 0;
 }
 
-:checked~.expander {
+:checked ~ .expander {
 	grid-template-rows: 1fr;
 }
 
-/* MAIN GRID */
-
-.cards-container {
-	max-width: 1400px;
-	margin: 2rem auto;
-	// width: 95%;
-	display: grid;
-	/* set display to grid to create the outer grid */
-	// grid-template-columns: repeat(3, auto);
-	/* create 4 explicit column tracks */
-	// grid-auto-rows: fit-content(12rem) minmax(10rem, 14rem) auto auto;
-	/* create 4 implicit row tracks */
-	gap: 0.5rem;
-	/* create the gap between grid columns and rows */
-	// justify-content: center;
-}
-
-/* SUBGRID */
-
-.card {
-	// grid-column: span 3;
-	/* every card spans across 3 columns of the main grid */
-	grid-row: span 4;
-	/* every card spans across 4 rows of the main grid */
-	display: grid;
-	/* set display to grid in order to create a subgrid */
-	// grid-template-columns: subgrid;
-	/* create subgrid for columns to use grid column tracks of the parent and name the column lines*/
-	grid-template-rows: subgrid [title-start][title-end photo-start];
-
-	/* create subgrid for rows to use row column tracks of the parent and name the row lines*/
-	// row-gap: 0;
-	/* override the inherited row gap */
-	background-color: #fff;
-	// box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	// margin: 0 0.5rem 1rem 0.5rem;
-	padding: .5rem;
-	border: 1px solid lightblue;
-	/*padding influences the sizing of rows and columns*/
-}
-
-/* SUBGRID IN SUBGRID */
-
-.card-header-wrapper {
-	grid-column: card;
-	/* use named tracks to place elements inside the subgrid */
-	grid-row: title;
-	display: grid;
-	/* make it grid container to create another subgrid inside */
-	grid-template-columns: subgrid;
-	/* create subgrid for columns to use grid column tracks of the parent */
-	grid-template-rows: fit-content(6rem) fit-content(6rem);
-	/* create two independent rows */
-	grid-template-areas: "subtitle subtitle avatar" "title title title";
-	/* create named grid areas to place the header elements*/
-	// align-items: end;
-	font-family: "Open Sans", Arial, sans-serif;
-}
-
-/* CARD DETAILS */
-
-.card-title {
-	grid-area: title;
-	/* place card title in the named grid area*/
-	font-size: 1.25rem;
-}
-
-.card-subtitle {
-	grid-area: subtitle;
-	font-weight: normal;
-	margin: 0;
-}
-
-.card-avatar-wrapper {
-	grid-area: avatar;
-	align-self: start;
-	justify-self: end;
-}
-
-.card-avatar {
-	object-fit: cover;
-	width: 3.5rem;
-	height: 3.5rem;
-	border-radius: 50%;
-}
-
-.card-photo-wrapper {
-	grid-column: card;
-	grid-row: photo;
-	margin-bottom: 0.5rem;
-}
-
-.card-photo {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-}
-
-.card-text {
-	grid-column: col-start / span 3;
-	/* use main grid line names*/
-	grid-row: text;
-	margin-bottom: 2rem;
-}
-
-.card-like {
-	grid-column: 1/2;
-	grid-row: button;
-	width: 2.5rem;
-	height: 2.5rem;
-	align-self: end;
-	cursor: pointer;
-}
-
-.card-button {
-	grid-area: button;
-	min-width: 4rem;
-	height: 3rem;
-	background-color: #66A9D6;
-	border: none;
-	border-radius: 0.25rem;
-	padding: 0 0.75rem;
-	color: white;
-	font-size: 0.9rem;
-	text-transform: uppercase;
-	letter-spacing: 0.09rem;
-	cursor: pointer;
-	justify-self: end;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	max-width: 8rem;
-}
-
-p.caption {
-	text-align: center;
-	font-size: 13px;
-	padding-bottom: 30px;
-}
-
-p.caption a {
-	color: #0086B3;
-}
-
-@media screen and (min-width: 480px) {
-	.cards-container {
-		grid-template-columns: repeat(6, [col-start] fit-content(9rem));
+.subgrid-demo {
+	img {
+		max-width: 100%;
 	}
-
 }
 
-@media screen and (min-width: 1024px) {
-	.cards-container {
-		grid-template-columns: repeat(12, [col-start] fit-content(9rem));
+@media screen and (min-width: 600px) {
+
+	.subgrid-demo {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+
+		> * {
+			display: grid;
+			grid-template-rows: subgrid;
+			grid-row: span 2;
+
+			img {
+				max-width: 100%;
+			}
+		}
 	}
 
 }
@@ -335,6 +205,11 @@ dialog {
 
 }
 
+summary {
+	user-select: none;
+	cursor: pointer;
+}
+
 details[open] {
 	summary {
 		background-image: var(--chevron-up);
@@ -358,6 +233,7 @@ details[open] {
 		display: none;
 		content: "";
 	}
+
 	margin-bottom: 1rem;
 }
 
@@ -366,6 +242,7 @@ details[open] {
 	position: relative;
 	max-width: 100%;
 	vertical-align: top;
+
 	button {
 		position: absolute;
 		inset-block-end: 0;
