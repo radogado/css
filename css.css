@@ -59,11 +59,16 @@ body {
   -webkit-mask-size: contain;
   mask: center no-repeat;
   mask-size: contain;
+  transform: translate3d(0, 0, 0);
 }
 
 section#masks .grid {
-  display: flex;
   gap: 1rem;
+}
+@media (width > 600px) {
+  section#masks .grid {
+    display: flex;
+  }
 }
 section#masks .grid > * {
   flex: 1;
@@ -90,6 +95,7 @@ form:has([required]:valid) {
 
 .expander > div {
   min-height: 0;
+  overflow: hidden;
 }
 
 :checked ~ .expander {
@@ -176,7 +182,7 @@ dialog {
   position: fixed;
   inset: 0;
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 3;
   border-radius: 0.5rem;
 }
 
@@ -215,6 +221,22 @@ details[open] summary {
   position: absolute;
   inset-block-end: 0;
   inset-inline-end: 0;
+  z-index: 1;
+}
+
+.n-carousel__content > * > :not(.scroll-container) {
+  overflow: initial;
+}
+
+@media (width < 600px) {
+  .n-type h2 {
+    font-size: 1.75rem;
+    line-height: normal;
+  }
+  .n-type h3 {
+    font-size: 1.5rem;
+    line-height: normal;
+  }
 }
 
 /*# sourceMappingURL=css.css.map */
